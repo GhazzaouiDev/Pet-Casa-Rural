@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Rural Agropecuária</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variáveis de Cores Baseadas na img 5.png */
+        :root {
+            --cor-laranja: #E66A19; /* Laranja da camisa */
+            --cor-azul: #1A3E7A;    /* Azul da logo na camisa */
+            --cor-fundo: #F4F6F9;
+            --cor-texto: #333333;
+            --cor-branco: #FFFFFF;
+            --cor-whatsapp: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--cor-branco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--cor-azul);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--cor-laranja);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--cor-texto);
+            font-weight: 600;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cor-laranja);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--cor-azul) 0%, #2a5298 100%);
+            color: var(--cor-branco);
+            padding: 150px 20px 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-principal {
+            background-color: var(--cor-laranja);
+            color: var(--cor-branco);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s, background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn-principal:hover {
+            background-color: #d15d14;
+            transform: translateY(-3px);
+        }
+
+        /* Seção de Produtos */
+        .produtos {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            color: var(--cor-azul);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .titulo-secao span {
+            color: var(--cor-laranja);
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card-produto {
+            background: var(--cor-branco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card-produto:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-produto img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-info h3 {
+            color: var(--cor-azul);
+            margin-bottom: 10px;
+        }
+
+        /* Seção Sobre Nós */
+        .sobre {
+            background-color: var(--cor-branco);
+            padding: 80px 20px;
+        }
+
+        .container-sobre {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .img-sobre {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(26, 62, 122, 0.2);
+        }
+
+        .img-sobre img {
+            width: 100%;
+            display: block;
+        }
+
+        .texto-sobre {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .texto-sobre h2 {
+            color: var(--cor-laranja);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--cor-azul);
+            color: var(--cor-branco);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .info-contato {
+            margin-bottom: 20px;
+        }
+
+        .info-contato i {
+            color: var(--cor-laranja);
+            margin-right: 10px;
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--cor-whatsapp);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .container-sobre { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegação -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo"><i class="fas fa-paw"></i> Casa <span>Rural</span></a>
+            <div class="nav-links">
+                <a href="#produtos">Nossos Produtos</a>
+                <a href="#sobre">Quem Somos</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero">
+        <h1>Tudo que seu pet e sua criação precisam!</h1>
+        <p>Rações de alta qualidade, acessórios, medicamentos e venda de aves com o melhor atendimento da região.</p>
+        <a href="https://wa.me/5524999055386?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido%20na%20Casa%20Rural." target="_blank" class="btn-principal">
+            <i class="fab fa-whatsapp"></i> Fale com a gente
+        </a>
+    </section>
+
+    <!-- Produtos/Categorias -->
+    <section id="produtos" class="produtos">
+        <h2 class="titulo-secao">Nossas <span>Categorias</span></h2>
+        
+        <div class="grid-produtos">
+            <!-- Card 1: Rações -->
+            <div class="card-produto">
+                <img src="img 4.jpg" alt="Estoque de Rações Diversas">
+                <div class="card-info">
+                    <h3>Rações Premium</h3>
+                    <p>Trabalhamos com Gran Plus, Quatree, Danes e muito mais para cães e gatos.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Acessórios e Farmácia -->
+            <div class="card-produto">
+                <img src="img 1.jpg" alt="Balcão com medicamentos e acessórios">
+                <div class="card-info">
+                    <h3>Farmácia e Acessórios</h3>
+                    <p>Medicamentos, vitaminas e acessórios essenciais para a saúde do seu pet.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Caixas de Transporte -->
+            <div class="card-produto">
+                <img src="img 2.jpg" alt="Prateleira com caixas de transporte coloridas">
+                <div class="card-info">
+                    <h3>Transporte e Conforto</h3>
+                    <p>Ampla variedade de caixas de transporte resistentes e caminhas confortáveis.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Gaiolas e Aves -->
+            <div class="card-produto">
+                <img src="img 3.jpg" alt="Visão geral da loja com gaiolas penduradas">
+                <div class="card-info">
+                    <h3>Aves e Gaiolas</h3>
+                    <p>Comercializamos lindas calopsitas, além de gaiolas, viveiros e misturas de sementes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre / Apresentação -->
+    <section id="sobre" class="sobre">
+        <div class="container-sobre">
+            <div class="img-sobre">
+                <img src="img 5.png" alt="Atendimento na Casa Rural">
+            </div>
+            <div class="texto-sobre">
+                <h2>Tradição e Carinho pelo seu Animal</h2>
+                <p>Na <strong>Casa Rural Agropecuária</strong>, somos especialistas em nutrição e cuidado animal. Entendemos que seu pet é parte da família, por isso selecionamos os melhores fornecedores de rações, brinquedos e medicamentos veterinários.</p>
+                <br>
+                <p>Seja para cães, gatos ou criação de aves como calopsitas, nossa equipe está pronta para te atender com agilidade e indicar o produto perfeito para a sua necessidade. Venha nos visitar ou faça seu pedido diretamente pelo WhatsApp!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer id="contato">
+        <div class="info-contato">
+            <p><i class="fas fa-map-marker-alt"></i> Av. Pres. Kennedy, 6158</p>
+            <p><i class="fab fa-whatsapp"></i> +55 (24) 99905-5386</p>
+        </div>
+        <p>&copy; <span id="ano-atual"></span> Casa Rural Agropecuária. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Balão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5524999055386?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido%20na%20Casa%20Rural." 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Atendimento via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Atualiza o ano no rodapé automaticamente
+        document.getElementById('ano-atual').textContent = new Date().getFullYear();
+
+        // Efeito simples de surgimento suave na rolagem (Fade In)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-produto, .texto-sobre').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
